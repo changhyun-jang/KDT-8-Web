@@ -1,0 +1,105 @@
+/* div {
+  width: 200px;
+  height: 200px;
+  border: 1px dotted black;
+  background-color: lightgray;
+  text-align: center;
+}
+p {
+  margin: 0;
+  line-height: 200px;
+} */
+/* 전체선택자 */
+/* * {
+  color: red;
+} */
+/* 태그선택자 */
+/* li {
+  color: red;
+} */
+
+/* 클래스선택자 */
+/* .orange {
+  color: orange;
+} */
+
+/* 아이디선택자 */
+/* #orange {
+  color: blue;
+} */
+
+/* 일치 선택자 */
+span.orange {
+  color: red;
+}
+
+/* 자식 선택자 */
+ul > .orange {
+  background-color: gray;
+}
+
+/* 하위 선택자 */
+ul .orange {
+  font-weight: bold;
+}
+
+/* 인접형제선택자 */
+.orange + li {
+  font-size: 30px;
+}
+
+/* 일반형제 선택자 */
+.orange ~ li {
+  color: green;
+}
+
+/* 가상선택자 hover */
+a:hover {
+  color: red;
+}
+
+/* 가상선택자 active */
+a:active {
+  background-color: black;
+  color: white;
+}
+
+/* 가상선택자 focus */
+input:focus {
+  background-color: lightgray;
+}
+
+.fruits span:nth-child(2) {
+  color: red;
+}
+
+.fruits div:first-child {
+  color: blue;
+}
+
+.fruits h3:last-child {
+  text-decoration: underline;
+}
+
+.fruits p:last-child {
+  color: green;
+}
+
+.fruits *:not(span) {
+  background-color: aqua;
+}
+
+.fruits::before {
+  content: "과일 목록 시작";
+}
+
+.fruits::after {
+  content: "과일목록 끝";
+}
+input[disabled] {
+  background-color: black;
+}
+
+input[type="password"] {
+  color: red;
+}
