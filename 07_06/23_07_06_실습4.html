@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html {
+        text-align: center;
+        background-color: beige;
+      }
+      h4 {
+        margin: 0px;
+        margin-top: 20px;
+      }
+      .age input {
+        margin: 0px;
+        margin-right: 3px;
+        margin-left: 10px;
+      }
+      .edu input {
+        margin: 0px;
+        margin-right: 3px;
+        margin-left: 10px;
+      }
+      textarea {
+        margin-top: 20px;
+      }
+      button {
+        padding: 5px 20px;
+      }
+      #name {
+        width: 200px;
+        height: 31px;
+      }
+      #email {
+        width: 200px;
+        height: 31px;
+      }
+      .container {
+        margin-bottom: 20px;
+      }
+      button {
+        border-radius: 10px;
+        border: none;
+        background-color: aqua;
+      }
+      button:hover {
+        padding: 6px 22px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>설문조사</h1>
+      <form action="">
+        <div class="container">
+          이름 <input id="name" type="text" required />
+        </div>
+        <div>
+          이메일 <input id="email" type="email" placeholder="eamil@naver.com" />
+        </div>
+        <h4>나이</h4>
+        <div class="age">
+          <input type="radio" name="age" />10대<input
+            type="radio"
+            name="age"
+          />20대<input type="radio" name="age" />30대<input
+            type="radio"
+            name="age"
+          />40대<input type="radio" name="age" />50대<input
+            type="radio"
+            name="age"
+          />60대이상
+        </div>
+        <h4>원하는 강의 (복수응답 가능합니다.)</h4>
+        <div class="edu">
+          <input type="checkbox" name="subject" />html
+          <input type="checkbox" name="subject" />javascript
+          <input type="checkbox" name="subject" />css
+        </div>
+        <textarea
+          style="width: 600px"
+          cols="30"
+          rows="10"
+          placeholder="하고 싶은 말을 적어주세요:)"
+        ></textarea>
+        <br />
+        <button>제출</button>
+      </form>
+    </main>
+  </body>
+</html>
