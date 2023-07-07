@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        width: 500px;
+        height: 500px;
+        position: relative;
+        background-color: beige;
+      }
+      div {
+        width: 100px;
+        height: 100px;
+      }
+      .item1 {
+        background-color: blueviolet;
+        position: relative;
+        z-index: 3;
+        /* visibility: hidden; */
+      }
+      .item1:hover {
+        background-color: blueviolet;
+        visibility: visible;
+      }
+      .item2 {
+        background-color: yellow;
+        position: absolute;
+        top: 30px;
+        left: 30px;
+
+        /* opacity: 0; */
+      }
+      .item2:hover {
+        background-color: yellow;
+        opacity: 1;
+      }
+      .item3 {
+        background-color: skyblue;
+        position: fixed;
+        top: 60px;
+        left: 60px;
+        z-index: 2;
+        /* display: none; */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item1">아이템1</div>
+      <div class="item2">아이템2</div>
+      <div class="item3">아이템3</div>
+    </div>
+  </body>
+</html>
