@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: #ccdbf0;
+        animation: bg_ani 12s linear 0s infinite;
+      }
+      .section1 {
+        text-align: start;
+      }
+      .section3 {
+        position: relative;
+        text-align: center;
+      }
+      .city {
+        width: 800px;
+      }
+      .sun {
+        position: relative;
+        left: 300px;
+        top: 80px;
+        width: 200px;
+        animation: Sun_ani 12s linear 0s infinite;
+      }
+      .moon {
+        position: relative;
+        width: 200px;
+        bottom: 650px;
+        left: 300px;
+        animation: Moon_ani 12s linear 0s infinite;
+      }
+      .cloud1 {
+        position: relative;
+        width: 150px;
+        left: 500px;
+        animation: cloud_ani1 5s linear 0s infinite;
+      }
+      .cloud2 {
+        position: relative;
+        width: 100px;
+        top: 10px;
+        left: 300px;
+        animation: cloud_ani2 3s linear 0s infinite;
+      }
+      @keyframes Moon_ani {
+        0% {
+          transform: rotate(360deg);
+          opacity: 0;
+        }
+        25% {
+          transform: rotate(270deg);
+          opacity: 0;
+        }
+        50% {
+          transform: rotate(180deg);
+          opacity: 0;
+        }
+        75% {
+          transform: rotate(90deg);
+          opacity: 1;
+        }
+        100% {
+          transform: rotate(0deg);
+          opacity: 0;
+        }
+      }
+
+      @keyframes bg_ani {
+        0% {
+          background: #ccdbf0;
+        }
+        50% {
+          background: pink;
+        }
+        100% {
+          background: darkblue;
+        }
+      }
+      @keyframes Sun_ani {
+        0% {
+          transform: rotate(0deg);
+          opacity: 0;
+        }
+        25% {
+          transform: rotate(90deg);
+          opacity: 1;
+        }
+        50% {
+          transform: rotate(180deg);
+          opacity: 0;
+        }
+        75% {
+          transform: rotate(270deg);
+          opacity: 0;
+        }
+        100% {
+          transform: rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      @keyframes cloud_ani1 {
+        0% {
+          left: 500px;
+          right: 0;
+          opacity: 1;
+        }
+        33% {
+          left: 1000px;
+          right: 0;
+          opacity: 0.5;
+        }
+        100% {
+          left: 500px;
+          right: 0;
+          opacity: 0;
+        }
+      }
+      @keyframes cloud_ani2 {
+        0% {
+          top: 10px;
+          left: 300px;
+          right: 0;
+          opacity: 1;
+        }
+        33% {
+          top: 10px;
+          left: 900px;
+          right: 0;
+          opacity: 0.5;
+        }
+        100% {
+          top: 10px;
+          left: 300px;
+          right: 0;
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="section1">
+      <img src="sun.png" alt="태양" class="sun" />
+    </div>
+    <img src="cloud.png" alt="구름" class="cloud1" />
+    <img src="cloud.png" alt="구름" class="cloud2" />
+    <div class="section3">
+      <img src="city.png" alt="도시" class="city" />
+    </div>
+    <img src="moon.png" alt="달" class="moon" />
+  </body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      img {
+        width: 300px;
+        height: 200px;
+        position: relative;
+      }
+      .first {
+        top: 100px;
+      }
+      .second {
+        top: 100px;
+        right: 120px;
+        z-index: -1;
+      }
+      .third {
+        top: 100px;
+        right: 200px;
+        z-index: -2;
+      }
+      img {
+        transform: skewY(25deg);
+      }
+      /* div {
+        width: 100px;
+        height: 100px;
+        background-color: yellow;
+        transition-property: width;
+        transition-property: 2s;
+        transition-timing-function: ease;
+        transition-duration: 0.5s;
+      }
+      div:hover {
+        width: 300px;
+      } */
+      div {
+        width: 100px;
+        height: 100px;
+        background-color: cyan;
+        position: relative;
+        animation-name: myanim;
+        animation-duration: 2s;
+        animation-iteration-count: 3;
+        animation-timing-function: ease;
+      }
+      @keyframes myanim {
+        0% {
+          left: 0px;
+          top: 0px;
+        }
+        25% {
+          left: 100px;
+          top: 0px;
+        }
+        50% {
+          left: 200px;
+          top: 0px;
+        }
+        75% {
+          left: 100px;
+          top: 0px;
+        }
+        100% {
+          left: 0px;
+          top: 0px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <img src="강아지귀여워.jpg" alt="강알쥐" class="first" />
+    <img src="강알쥐.jfif" alt="강알쥐" class="second" />
+    <img src="갱알쥐.jfif" alt="강알쥐" class="third" /> -->
+    <div></div>
+  </body>
+</html>
