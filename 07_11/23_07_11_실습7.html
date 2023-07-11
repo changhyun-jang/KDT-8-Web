@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let age = Number(prompt("몇살?"));
+      let gender = prompt("성별을 적어주세요");
+      let result;
+      if (gender == "남") {
+        result = "남자";
+      } else {
+        result = "여자";
+      }
+      if (age >= 20) {
+        result = "성인 " + result;
+      } else if (age >= 17) {
+        result = "고등학생 " + result;
+      } else if (age >= 14) {
+        result = "중학생 " + result;
+      } else if (age >= 8) {
+        result = "초등학생 " + result;
+      } else {
+        result = "유아 " + result;
+      }
+      alert(result);
+    </script>
+  </body>
+</html>

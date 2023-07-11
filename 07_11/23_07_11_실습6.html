@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let first = Number(prompt("첫번쨰 숫자 입력하세요."));
+      let second = Number(prompt("두번째숫자 입력하세요."));
+      console.log("첫번쨰" + first);
+      console.log("두번쨰" + second);
+
+      function add(a, b) {
+        return alert(a + b);
+      }
+      function sub(a, b) {
+        return alert(a - b);
+      }
+      function divide(a, b) {
+        return alert(a / b);
+      }
+      function mul(a, b) {
+        return alert(a * b);
+      }
+    </script>
+    <button onclick="add(first,second)">더하기</button
+    ><button onclick="sub(first,second)">빼기</button
+    ><button onclick="mul(first,second)">곱하기</button
+    ><button onclick="divide(first,second)">나누기</button>
+  </body>
+</html>
