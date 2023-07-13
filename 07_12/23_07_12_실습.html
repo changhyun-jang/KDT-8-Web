@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let arr = [];
+      let result = 0;
+      for (let i = 1; i < 101; i++) {
+        arr.push(i);
+      }
+      for (let i = 1; i < 101; i++) {
+        result += i;
+      }
+      console.log("for문 결과 : " + result);
+      result = 0;
+      for (let i of arr) {
+        result += i;
+      }
+      console.log("for of문 결과 : " + result);
+      result = 0;
+      arr.forEach((a, b, c) => {
+        result += a;
+      });
+      console.log("for each문 결과 : " + result);
+    </script>
+  </body>
+</html>

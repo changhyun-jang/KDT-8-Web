@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        border: 1px solid black;
+        width: 100px;
+        height: 100px;
+      }
+      #green {
+        background-color: greenyellow;
+      }
+      #red {
+        background-color: rosybrown;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box" id="green">1</div>
+      <div class="box" id="red">2</div>
+      <div class="box">3</div>
+      <div class="box">4</div>
+      <div class="box">5</div>
+    </div>
+    <input type="text" name="username" id="userName" />
+    <a href="https://google.com" id="google">Google</a>
+    <script>
+      let div1 = document.getElementById("green");
+      //1.태그의 내부 내용 변경
+      // 가져온선택자.innerHTML  :  HTML로써 내용추가
+      // 가져온선택자.innerText : 문자열을 추가 & 공백문자 제거
+      // 가져온선택자.textContent : 문자열을 추가 & 공백문자 그대로 반환
+      // (IE9 이전버전에서는 아예 동작 X)
+      div1.textContent = "      여기는 태그";
+
+      let google = document.getElementById("google");
+      google.href = "www.naver.com";
+      google.setAttribute("href", "https://daum.net");
+    </script>
+  </body>
+</html>

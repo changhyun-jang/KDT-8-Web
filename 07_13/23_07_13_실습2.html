@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width='device-width', initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .c1{
+            margin:0px;
+            width:100px;
+            height:20px;
+            display: flex;
+            justify-content: center;
+        }
+        div{
+            display: flex;
+            height:20px;
+            margin-bottom: 5px;
+        }
+        button{
+            margin: 10px;
+        }
+        table{
+            border: 1px solid black;
+        }
+        th, td{
+            border: 1px solid black;
+        }
+        .num{
+            width:50px;
+        }
+        .writer{
+            width:60px;
+        }
+        .c2{
+            width: 200px;
+        }
+        .day{
+            width:120px;
+        }
+    </style>
+  </head>
+  <body>
+    <p>방명록입니다.</p>
+    <div>
+      <p class="c1">작성자</p>
+      <input type="text" name="이름" id="N1" /> </div>
+      <div><p class="c1">내용</p>
+        <input type="text" name="이름" id="C1" style="width: 600px" /></div>
+    </div>
+    <button onclick="finish1()">작성</button>
+    <table id="menu">
+        <tr>
+            <th class="num">번호</th><th class="writer">작성자</th><th class="c2">내용</th><th class="day">작성일</th>
+        </tr>
+    </table>
+    <script>
+        let writer1 = document.querySelector("#N1")
+        let content1 = document.querySelector("#C1")
+        let t1= document.querySelector("#menu")
+        let count=1;
+        
+
+        function finish1(){
+            let save1= writer1.value;
+            let save2= content1.value;
+            let d1= new Date();
+            let newRow= t1.insertRow();
+            let newCell1=newRow.insertCell(0);;
+            let newCell2=newRow.insertCell(1);
+            let newCell3=newRow.insertCell(2);
+            let newCell4=newRow.insertCell(3);
+            
+            newCell1.innerText = count;
+            count++;
+            newCell2.innerText=save1;
+            newCell3.innerText=save2;
+            newCell4.innerText=d1.getFullYear()+"-"+(Number(d1.getMonth())+1)+"-"+d1.getDay()+" "+d1.getHours() + " : "+d1.getMinutes()
+            writer1.value="";
+            content1.value="";
+        }
+    </script>
+  </body>
+</html>

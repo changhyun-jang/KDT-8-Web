@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    값1: <input type="text" id="value1" /> <br />
+    값2:<input type="text" id="value2" /><br />
+    연산자:<input type="text" id="op" /> <br />
+    결과:<input type="text" id="result" /><br /><br />
+    <button id="btn" onclick="cal()">계산하기</button>
+    <button id="reset" onclick="first()">초기화</button>
+    <script>
+      var v1 = document.querySelector("#value1");
+      let v2 = document.querySelector("#value2");
+      let oper = document.querySelector("#op");
+      let re = document.querySelector("#result");
+      let bt1 = document.querySelector("#btn");
+      let reset = document.querySelector("#reset");
+
+      function cal() {
+        let save1 = Number(v1.value);
+        let save2 = Number(v2.value);
+        let op = oper.value;
+        let res = re.value;
+        console.log(save1);
+        if (op === "+") {
+          re.value = save1 + save2;
+        } else if (op === "-") {
+          re.value = save1 - save2;
+        } else if (op === "*") {
+          re.value = save1 * save2;
+        } else {
+          re.value = save1 / save2;
+        }
+      }
+
+      function first() {
+        v1.value = "";
+        v2.value = "";
+        oper.value = "";
+        re.value = "";
+      }
+    </script>
+  </body>
+</html>
