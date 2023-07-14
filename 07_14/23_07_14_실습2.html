@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.js"
+      integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"
+      integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c="
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      div {
+        width: 500px;
+        height: 500px;
+      }
+      .red {
+        background-color: red;
+      }
+      .orange {
+        background-color: orange;
+      }
+      .yellow {
+        background-color: yellow;
+      }
+      .green {
+        background-color: green;
+      }
+      .blue {
+        background-color: blue;
+      }
+      .darkblue {
+        background-color: darkblue;
+      }
+      .purple {
+        background-color: purple;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+  </body>
+  <script>
+    $("div").addClass("red");
+
+    // let color = [
+    //   "red",
+    //   "blue",
+    //   "purple",
+    //   "yellow",
+    //   "orange",
+    //   "green",
+    //   "darkblue",
+    // ];
+    // let count = 0;
+    function changeColor() {
+      //   count += 1;
+      //   if (count > color.length) {
+      //     count = 0;
+      //   }
+      //   $("div").css("background-color", color[count]);
+      $("div").switchClass("red", "orange", 1000);
+      $("div").switchClass("orange", "yellow", 1000);
+      $("div").switchClass("yellow", "green", 1000);
+      $("div").switchClass("green", "blue", 1000);
+      $("div").switchClass("blue", "darkblue", 1000);
+      $("div").switchClass("darkblue", "purple", 1000);
+      $("div").switchClass("purple", "red", 1000);
+    }
+    addEventListener("click", changeColor);
+  </script>
+</html>

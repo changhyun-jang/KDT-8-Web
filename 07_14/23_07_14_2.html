@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.js"
+      integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+      crossorigin="anonymous"
+      fucn
+    ></script>
+    <script
+      src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"
+      integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <ul>
+      <li>1</li>
+      <li id="li2">2</li>
+      <li id="li3">3</li>
+    </ul>
+
+    <button onclick="append()">append</button>
+    <button onclick="prepend()">prepend</button>
+    <button onclick="before()">before</button>
+    <button onclick="after()">after</button>
+    <button onclick="search()">search</button>
+    <button onclick="removeElement()">removeElement</button>
+    <button onclick="emptyElement()">emptyElement</button>
+
+    <hr />
+    <h5>요소탐색</h5>
+    <div class="ancestor">
+      <div class="parent">
+        <div class="child1">자식1</div>
+        <div class="child2">자식2</div>
+        <div class="child3">자식2</div>
+      </div>
+    </div>
+
+    <hr />
+    <button onclick="findParent()">findParent</button>
+    <button onclick="findParents()">findParents</button>
+    <button onclick="findNext()">findNext</button>
+    <button onclick="findPrev()">findPrev</button>
+    <button onclick="findChildren()">findChildren</button>
+  </body>
+  <script>
+    function append() {
+      let li = document.createElement("li");
+      //   li.innerText = "append됨";
+      //   document.querySelector("ul").append(li);
+      $(li).text("뭘봐");
+      $("ul").append(li);
+    }
+    function prepend() {
+      let li = document.createElement("li");
+      //   li.innerText = "append됨";
+      //   document.querySelector("ul").append(li);
+      $(li).text("뭘봐");
+      $("ul").prepend(li);
+    }
+    function before() {
+      let li = document.createElement("li");
+      li.innerText = "before 된 친구";
+      //   document.querySelector("#li2").before(li);
+      $("#li2").before(li);
+    }
+    function after() {
+      let li = document.createElement("li");
+      li.innerText = "after 된 친구";
+      //   document.querySelector("#li2").after(li);
+      $("#li2").after(li);
+    }
+    function removeElement() {
+      document.querySelector("ul").remove();
+      $("ul").remove();
+    }
+    function emptyElement() {
+      $("ul").empty();
+    }
+    function findParent() {
+      $(".child2").parent();
+    }
+    function findParent() {
+      $(".child2").parents();
+    }
+    function findNext() {
+      console.log($(".child2").next());
+    }
+  </script>
+</html>

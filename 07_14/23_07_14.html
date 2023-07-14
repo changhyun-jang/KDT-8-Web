@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.js"
+      integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+      crossorigin="anonymous"
+      fucn
+    ></script>
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+      }
+      .div1 {
+        background-color: red;
+      }
+      .div2 {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="https://www.naver.com">네이버</a>
+    <input type="text " id="input" />
+    <div class="div1"></div>
+    <div class="div2"></div>
+    <button onclick="setValue()">setValue</button>
+    <button onclick="getValue()">getValue</button>
+    <button onclick="changeStyle()">changeStyle</button>
+    <button onclick="changeText()">changeText</button>
+    <button onclick="changeAttribute()">changeAttribute</button>
+    <button onclick="changeHTML()">changeHTML</button>
+    <script>
+      function setValue() {
+        $("input").val("안녕");
+      }
+      function getValue() {
+        let value = $("#input").val();
+      }
+      function changeStyle() {
+        // let div = document.querySelector("div");
+        // div.style = "border:1px solid black";
+        $("div").css("border", "10px solid black");
+      }
+      function changeText() {
+        // let div = document.querySelector("div");
+        // div.innerText = "jQuery 사용 전 글자 바꾸기";
+        $("div").text("jQuery 사용 전 글자 바꾸기");
+      }
+      function changeAttribute() {
+        // let a = document.querySelector("a");
+        // a.setAttribute("href", "https://google.com");
+        $("a").attr("href", "https://google.com");
+      }
+      function changeHTML() {
+        let div = document.querySelector("div");
+        div.innerHTML = "<b>jQuery 사용 전 글자 바꾸기</b>";
+        // $("div").html("jQuery 사용 전 글자 바꾸기");
+      }
+    </script>
+  </body>
+</html>
