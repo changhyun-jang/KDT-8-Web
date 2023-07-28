@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.js"
+      integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"
+      integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c="
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+      }
+      img {
+        margin-bottom: 20px;
+        width: 500px;
+        height: 400px;
+        border: 1px solid gray;
+      }
+      button {
+        color: white;
+        background-color: black;
+        padding: 5px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="" alt="그림 없음" class="image" />
+    <div>
+      <button onclick="apple()">사과</button>
+      <button onclick="banana()">바나나</button>
+      <button onclick="grape()">포도</button>
+      <button onclick="peach()">복숭아</button>
+    </div>
+  </body>
+  <script>
+    function apple() {
+      $(".image").attr("src", "/public/appel.jfif");
+    }
+    function banana() {
+      $(".image").attr("src", "/public/banana.jfif");
+    }
+    function grape() {
+      $(".image").attr("src", "/public/grape.jfif");
+    }
+    function peach() {
+      $(".image").attr("src", "/public/peach.jfif");
+    }
+  </script>
+</html>
