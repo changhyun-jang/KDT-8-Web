@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <form action="/postResult" method="post">
+      <div>이름 <input type="text" name="name" required /></div>
+      <fieldset>
+        <legend>성별</legend>
+        <input type="radio" name="gender" id="M" value="남자" required />남자
+        <input type="radio" name="gender" id="W" value="여자" required />여자
+      </fieldset>
+      <fieldset>
+        <legend>생년월일</legend>
+        <select name="year" id="년">
+          <option value="2023">2023</option>
+        </select>
+        년
+        <select name="month" id="월">
+          <option value="7">07</option></select
+        >월
+        <select name="day" id="일">
+          <option value="31">31</option></select
+        >일
+      </fieldset>
+      <fieldset>
+        <legend>관심사</legend>
+        <input type="checkbox" name="fa" id="여행" value="여행" />여행
+        <input type="checkbox" name="fa" id="패션" value="패션" />패션
+        <input type="checkbox" name="fa" id="음식" value="음식" />음식
+      </fieldset>
+      <fieldset>
+        <legend>선택</legend>
+        좋아하는 색상<input type="color" name="color" id="색" required /><br />
+        좋아하는 숫자<input type="number" name="number" id="숫자" required />
+      </fieldset>
+      <br />
+      <button type="submit">회원가입</button>
+    </form>
+  </body>
+</html>
