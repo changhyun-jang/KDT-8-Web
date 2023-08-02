@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>가입에 성공하신걸 환영합니다.</h1>
+    <br />
+    <div>당신의 아이디는 <%= info.identity %>입니다.</div>
+    <br />
+    <div>당신의 비밀번호는 <%= info.pwd %>입니다.</div>
+    <br />
+    <div>당신의 이름은 <%= info.Username %>입니다.</div>
+    <br />
+    <div>당신의 나이는 <%= info.age %>입니다.</div>
+    <br />
+    <div>당신의 프로필 사진은 다음과 같습니다.</div>
+    <br />
+    <div><img src="<%= profile.path %>" alt="프로필사진" /></div>
+  </body>
+</html>

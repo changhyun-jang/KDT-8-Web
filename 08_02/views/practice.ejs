@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <h6>개인정보</h6>
+    <form
+      name="register"
+      action="/good"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <label for="identity">아이디</label
+      ><input type="text" name="identity" id="identity" /> <br />
+      <label for="pwd">비밀번호</label
+      ><input type="password" name="pwd" id="pwd" /> <br />
+      <label for="Username">이름</label
+      ><input type="text" name="Username" id="Username" /><br />
+      <label for="age">나이</label
+      ><input type="number" name="age" id="age" /><br />
+      프로필사진: <input type="file" name="profile-img" id="profileImg" />
+      <br />
+      <br />
+      <button type="button">reset</button>
+      <button type="submit">회원가입</button>
+    </form>
+    <div class="result"></div>
+  </body>
+  <!-- <script>
+    function registerMember() {
+      const resultBox = document.querySelector(".result");
+      const file = document.getElementById("profileImg");
+      const form = document.forms["register"];
+      const formData = new FormData();
+      formData.append("profile-img", file.files[0]);
+      const data = {
+        identity: form.identity.value,
+        pwd: form.pwd.value,
+        username: form.Username.value,
+        age: form.age.value,
+      };
+
+      axios({
+        method: "POST",
+        url: "/finish",
+        data: formData,
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }).then((res) => {
+        window.open(`/${res.data.dest}`);
+        return res.data;
+      });
+    }
+  </script> -->
+</html>
