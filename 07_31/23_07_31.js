@@ -28,7 +28,9 @@ console.log(person["name"]);
 console.log(person["j-1"]);
 person.city = "suwon";
 console.log(person.city);
-
+//만약 객체구조분해 전 먼저 변수명으로 사용이 되었다면
+const city = " ";
 //객체 구조분해(키값과 같아야함)
-const { name, city, gender, key1 = "Hi" } = person;
+//:을 통해 새로운 변수명으로 지정
+const { name, city: newCity, gender, key1 = "Hi" } = person;
 console.log(name, city, gender, key1);
