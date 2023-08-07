@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>방명록</title>
+    <style>
+        fieldset{
+            margin-bottom: 20px;
+        }
+    </style>
+  </head>
+  <script>
+    function writeComment(){
+      let visitorName= document.querySelector('#visitorName').value;
+      let visitorComment=document.querySelector('#visitorComment').value;
+      let body=document.querySelector('tbody');
+      const data={
+        name: visitorName,
+        comment : visitorComment
+      }
+      result=axios({
+        method:"POST",
+        url:"/visitor/write",
+        data,
+      }).then((result)=>{
+        const html= `
+        <tr>
+          <td>${result.data.id}</td>
+          <td>${result.data.name}</td>
+          <td>${result.data.comment}</td>
+          <td><button type="button" onclick="updateComment('${result.data.id}')">수정</button></td>
+          <td><button type="button" onclick="deleteComment(event)">삭제</button></td>
+        </tr>
+        `
+        body.insertAdjacentHTML('beforeend', html)
+        // window.location.reload()
+      });
+    }
+    function updateComment(id){
+      let inputName= document.querySelector('#visitorName');
+      let inputComment=document.querySelector('#visitorComment');
+      console.log(id)
+      axios({
+        method:"PATCH",
+        url:"/visitor/edit",
+        data:{
+          id:Number(id),
+          name: inputName.value,
+          comment : inputComment.value,
+        }
+      }).then((result)=>{
+        window.location.reload()
+      })
+    }
+
+    function deleteComment(event){
+      let idNum=event.target.parentElement.parentElement.children[0].innerText;
+      const data={
+        id: idNum,
+      }
+      axios({
+        method:"DELETE",
+        url:"/visitor/delete",
+        data,
+      }).then((result)=>{
+        window.location.reload()
+      });
+    }
+  </script>
+  <body>
+    <fieldset>
+        <legend>방명록 등록</legend>
+        <input type="text" id="visitorName" placeholder="사용자 이름"><br>
+        <input type="text" id="visitorComment" placeholder="방명록"><br>
+        <button type="button" onclick="writeComment()">등록</button>
+    </fieldset>
+
+    <table border="1" cellspacing="0">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>작성자</th>
+          <th>방명록</th>
+          <th>수정</th>
+          <th>삭제</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (let i=0;i<data.length; i++) { %>
+        <tr id="tr_ <%= data[i].id %>">
+            <td><a href="/visitor/get?id=<%= data[i].id %>"><%= data[i].id %></a></td>
+            <td><%= data[i].name %></td>
+            <td><%= data[i].comment %></td>
+            <td><button type="button" onclick="updateComment('<%= data[i].id %>')">수정</button></td>
+            <td><button type="button" onclick="deleteComment(event)">삭제</button></td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+    <a href="/">홈으로 돌아가기</a>
+  </body>
+</html>
