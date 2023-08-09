@@ -18,12 +18,22 @@ const signuppage = (req, res) => {
 const signinpage = (req, res) => {
   res.render("signin");
 };
+// 1번
+// const signupMember = (req, res) => {
+//   signupUser(req.body.userid, req.body.name, req.body.pw, (result) => {
+//     res.send({ result: true, name: req.body.name });
+//   });
+// };
 
-const signupMember = (req, res) => {
-  signupUser(req.body.userid, req.body.name, req.body.pw, (result) => {
+const signupMember = async (req, res) => {
+  try {
+    await post_profile(req.body.userid, req.body.name, req.body.pw);
     res.send({ result: true, name: req.body.name });
-  });
+  } catch (error) {
+    console.log(error);
+  }
 };
+
 const signinMember = (req, res) => {
   signinUser(req.body.userid, req.body.pw, (result) => {
     if (result.length !== 0) {

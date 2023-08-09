@@ -1,30 +1,46 @@
 import { query } from "express";
-import mysql from "mysql";
+import mysql from "mysql2/promise";
 
-const conn = mysql.createConnection({
+const conn = mysql.createPool({
   host: "localhost",
   user: "user",
   password: "1234",
   database: "kdt8",
 });
 
+// const conn = mysql.createConnection({
+//   host: "localhost",
+//   user: "user",
+//   password: "1234",
+//   database: "kdt8",
+// });
+
+//함수앞에 async를 사용하면 callback함수 필요없음
 //회원가입시 db에 데이터 저장
-const signupUser = (userid, name, pw, cb) => {
-  const sql =
-    "insert into user1 (userid,name,pw) values ('" +
-    userid +
-    "','" +
-    name +
-    "','" +
-    pw +
-    "')";
-  conn.query(sql, (err, rows) => {
-    if (err) {
-      throw err;
-    }
-    console.log("signupUser", rows);
-    cb(rows);
-  });
+const signupUser = async (userid, name, pw) => {
+  // 1번방식
+  // const sql =
+  //   "insert into user1 (userid,name,pw) values ('" +
+  //   userid +
+  //   "','" +
+  //   name +
+  //   "','" +
+  //   pw +
+  //   "')";
+  // conn.query(sql, (err, rows) => {
+  //   if (err) {
+  //     throw err;
+  //   }
+  //   console.log("signupUser", rows);
+  //   cb(rows);
+  // });
+  try {
+    const sql = `insert into user1 (userid,name,pw) values (?,?,?) `;
+    const rows = await conn.query(userid, name, pw);
+    return rows;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 //로그인시 db 데이터와 비교
