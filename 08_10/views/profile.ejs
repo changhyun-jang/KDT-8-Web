@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+  </head>
+  <script>
+    function alterInfo() {
+      const form = document.forms["profileInfo"];
+      const data = {
+        id: form.unique_id.value,
+        userid: form.userid.value,
+        name: form.userName.value,
+        pw: form.pwd.value,
+      };
+      axios({
+        method: "PATCH",
+        url: "/user/profile/edit",
+        data,
+      }).then((result) => {
+        alert(
+          "회원정보 수정 성공!" +
+            "userid는 " +
+            result.data.result.userid +
+            ", name은" +
+            result.data.result.name +
+            ", pw는" +
+            result.data.result.pw +
+            "로 변경되었습니다."
+        );
+      });
+    }
+
+    function deleteInfo() {
+      const form = document.forms["profileInfo"];
+      const data = {
+        id: form.unique_id.value,
+      };
+      axios({
+        method: "DELETE",
+        url: "/user/profile/delete",
+        data,
+      }).then((result) => {
+        alert("계정이 삭제되어 로그인화면으로 돌아갑니다.");
+        window.location.href = "http://localhost:8080/user/signin";
+      });
+    }
+  </script>
+  <body>
+    <form name="profileInfo">
+      <input
+        type="hidden"
+        value="<%= data.id %>"
+        name="unique_id"
+        readonly
+      /><br />
+      <label for="userid">userid</label>
+      <input
+        type="text"
+        name="userid"
+        id="userid"
+        value="<%= data.userid %>"
+      /><br />
+      <label for="userName">name</label>
+      <input
+        type="text"
+        id="userName"
+        name="userName"
+        value="<%= data.name %>"
+      /><br />
+      <label for="pwd">pw</label>
+      <input
+        type="password"
+        name="pwd"
+        id="pwd"
+        value="<%= data.pw %>"
+      /><br /><br />
+      <button type="button" onclick="alterInfo()">수정</button>
+      <button type="button" onclick="deleteInfo()">삭제</button>
+    </form>
+  </body>
+  <script></script>
+</html>
