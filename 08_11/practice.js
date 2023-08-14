@@ -4,6 +4,7 @@ const app = express();
 const PORT = 8000;
 
 app.set("view engine", "ejs");
+app.use(cookieParser());
 const cookieConfig = {
   //httpOnly:웹서버를 통해서만 쿠키에 접근가능
   //자바스크립트에서 document.cookie이용하여 쿠키에 접속하는 것을 차단
@@ -19,13 +20,14 @@ const cookieConfig = {
 };
 
 app.get("/", (req, res) => {
-  res.render("practice");
+  console.log(req.cookies);
+  res.render("practice", { popup: req.cookies.myCookie });
 });
-app.get("/setCookie", (req, res) => {
-  console.log(1);
+app.post("/setCookie", (req, res) => {
   //쿠키이름, 쿠키값, 옵션객체
-  res.cookie("myCookie", "myValue", cookieConfig);
-  res.send("set cookie");
+  res.cookie("myCookie", "myValue");
+  res.send({ message: "set cookie" });
+  cookieConfig;
 });
 app.listen(PORT, () => {
   console.log(`http://localhost:${PORT}`);

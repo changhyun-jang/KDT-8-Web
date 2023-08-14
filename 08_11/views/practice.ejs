@@ -14,19 +14,22 @@
   </head>
   <script>
     window.addEventListener("load", () => {
-      if (document.cookie) {
-        console.log(document.cookie);
-        return;
-      } else {
+      if ("<%= popup %>" === "") {
         console.log(document.cookie);
         document.querySelector("button").click();
+      } else {
+        return;
       }
     });
-    async function checkBox() {
-      const result = await axios({
-        method: "GET",
-        URL: "/setCookie",
-      });
+    function checkMakeCookie() {
+      const checkingbox = document.getElementById("today_check");
+      const checkedBox = checkingbox.checked;
+      if (checkedBox) {
+        axios({
+          method: "POST",
+          url: "/setCookie",
+        }).then((result) => {});
+      }
     }
   </script>
   <body>
@@ -57,15 +60,14 @@
               class="btn-close"
               data-bs-dismiss="modal"
               aria-label="Close"
+              onclick="checkMakeCookie()"
             ></button>
           </div>
           <div class="modal-body">너 T야?</div>
           <div class="modal-footer">
-            <input
-              type="checkbox"
-              id="today_check"
-              onclick="checkBox()"
-            /><label for="today_check">오늘 하루 그만보기</label>
+            <input type="checkbox" id="today_check" /><label for="today_check"
+              >오늘 하루 그만보기</label
+            >
           </div>
         </div>
       </div>

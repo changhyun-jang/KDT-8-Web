@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <title>Document</title>
+  </head>
+
+  <body>
+    <button class="ex1"><a href="/login">로그인 </a></button>
+    <button class="ex2"><a href="/register">회원가입</a></button>
+    <p class="ex3"><%= name%>님 환영합니다.</p>
+    <button class="ex4" onclick="logout()">로그아웃</button>
+  </body>
+  <script>
+    const ex1 = document.querySelector(".ex1");
+    const ex2 = document.querySelector(".ex2");
+    const ex3 = document.querySelector(".ex3");
+    const ex4 = document.querySelector(".ex4");
+    if ("<%= name %>" === "") {
+      ex1.style.display = "block";
+      ex2.style.display = "block";
+      ex3.style.display = "none";
+      ex4.style.display = "none";
+    } else {
+      ex1.style.display = "none";
+      ex2.style.display = "none";
+      ex3.style.display = "block";
+      ex4.style.display = "block";
+    }
+
+    function logout() {
+      axios({
+        method: "POST",
+        url: "/deleteSession",
+      }).then(() => {
+        window.location.href = "/";
+      });
+    }
+  </script>
+</html>
