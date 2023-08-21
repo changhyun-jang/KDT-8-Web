@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <title>Document</title>
+  </head>
+
+  <body>
+    <button class="ex1"><a href="/login">로그인 </a></button>
+    <button class="ex2"><a href="/register">회원가입</a></button>
+    <p class="ex3"></p>
+    <button class="ex4" onclick="logout()">로그아웃</button>
+  </body>
+  <script>
+    window.onload = function () {
+      const ex1 = document.querySelector(".ex1");
+      const ex2 = document.querySelector(".ex2");
+      const ex3 = document.querySelector(".ex3");
+      const ex4 = document.querySelector(".ex4");
+      tokenValue = localStorage.getItem("token");
+      if (tokenValue !== null) {
+        axios({
+          method: "POST",
+          url: "/verify",
+          headers: {
+            Authorization: `Bearer ${tokenValue}`,
+          },
+        }).then((result) => {
+          if (result.data.result === true) {
+            console.log(result.data);
+            ex3.innerText = `${result.data.user.id}님 환영합니다.`;
+            ex1.style.display = "none";
+            ex2.style.display = "none";
+            ex3.style.display = "block";
+            ex4.style.display = "block";
+          }
+        });
+      } else {
+        ex1.style.display = "block";
+        ex2.style.display = "block";
+        ex3.style.display = "none";
+        ex4.style.display = "none";
+      }
+    };
+    function logout() {
+      localStorage.clear();
+      window.location.href = "/";
+    }
+  </script>
+</html>

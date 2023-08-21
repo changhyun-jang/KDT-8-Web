@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>결과</h1>
+    <ul>
+      <li>이름 <span><%= data.username %></span></li>
+      <li>성별 <span><%= data.gender %></span></li>
+      <li>
+        생일 <span><%= data.birthYear %></span>년
+        <span><%= data.birthMonth %></span>월
+        <span><%= data.birthDay %></span>일
+      </li>
+      <li>취미 <span><%= data.hobby%></span></li>
+      <li>
+        색
+        <div id="color"></div>
+        <%= data.color %>
+      </li>
+      <li>숫자 <span><%= data.number%></span></li>
+    </ul>
+  </body>
+</html>
