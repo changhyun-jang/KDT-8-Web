@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <form name="editform">
+      <input type="text" id="userid" placeholder="ID" /><br />
+      <input type="password" id="pw" placeholder="PW" /><br />
+      <input type="text" id="name" placeholder="NAME" /><br />
+      <button type="button" onclick="editFunc()">수정하기</button>
+    </form>
+  </body>
+  <script>
+    async function editFunc() {
+      const form = document.forms["editform"];
+      console.log(1);
+      try {
+        const res = await axios({
+          method: "PATCH",
+          url: "/editinfo",
+          data: {
+            userid: form.userid.value,
+            pw: form.pw.value,
+            name: form.name.value,
+          },
+        });
+        alert("회원정보가 성공적으로 수정되었습니다.");
+        window.location.href = "/SeeUser";
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  </script>
+</html>

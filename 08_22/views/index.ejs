@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+  </head>
+  <script>
+    async function addMem() {
+      const form = document.forms["addMember"];
+      console.log(form.gender);
+      const data = {
+        userId: form.identity.value,
+        com: form.com.value,
+        gender: form.gender.value,
+        major: form.major.value,
+      };
+      try {
+        response = await axios({
+          method: "POST",
+          url: "/addSee",
+          data,
+        });
+        window.location.reload();
+      } catch (error) {}
+    }
+  </script>
+  <body>
+    <h1>MVC익히기</h1>
+    <form name="addMember">
+      ID<input type="text" id="identity" /><br />
+      이름<input type="text" id="com" /><br />
+      성별 <input type="radio" id="g" name="gender" value="남자" /><label
+        for="g"
+        >남자</label
+      ><input type="radio" id="W" name="gender" value="여자" /><label for="W"
+        >여자</label
+      ><br />
+      전공 <input type="text" id="major" /><br />
+      <button type="button" onclick="addMem()">추가</button>
+    </form>
+    <ul>
+      <% for (let i = 0; i < users.length; i++) { %>
+      <li>
+        <b><%= users[i].userId %></b> -
+        <c><%= users[i].comment %></c>
+        <c><%= users[i].gender %></c>
+        <c><%= users[i].major %></c>
+      </li>
+      <% } %>
+    </ul>
+  </body>
+</html>

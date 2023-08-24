@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Sign In</h2>
+    <form name="Login">
+      <label for="userid">userid</label>
+      <input type="text" id="userid" /><br />
+      <label for="pwd">pw</label>
+      <input type="password" id="pwd" /><br /><br />
+      <button type="button" onclick="logIn()">로그인</button>
+    </form>
+    <form action="/user/profile" method="post" name="goToProfile">
+      <input type="hidden" id="userid2" name="userid2" /><br />
+    </form>
+    <script>
+      function logIn() {
+        const userid2 = document.querySelector("#userid2");
+        const form = document.forms["Login"];
+        const data = {
+          userid: form.userid.value,
+          pw: form.pwd.value,
+        };
+        axios({
+          method: "POST",
+          url: "/user/signin",
+          data,
+        }).then((result) => {
+          if (result.data.result) {
+            const form2 = document.forms["goToProfile"];
+            userid2.value = form.userid.value;
+            form2.submit();
+          } else {
+            //window.location.href="/user/signin"
+            //form.reset
+            window.location.reload();
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
