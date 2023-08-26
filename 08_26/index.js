@@ -27,7 +27,7 @@ const upload = multer({
       cb(null, { fileName: file.fieldname });
     },
     key: function (req, file, cb) {
-      cb(null, Date.now().toString + "-" + file.originalname);
+      cb(null, Date.now().toString() + "-" + file.originalname);
     },
   }),
 });
@@ -38,7 +38,7 @@ app.get("/", (req, res) => {
 });
 app.post("/upload", upload.array("files"), (req, res) => {
   console.log(req.files);
-  req.setEncoding(req, files);
+  res.send(req.files);
 });
 
 app.listen(PORT, () => {

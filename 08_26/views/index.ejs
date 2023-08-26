@@ -21,7 +21,7 @@
       const file = document.querySelector("#files");
       const formdata = new FormData();
       for (let i = 0; i < file.files.length; i++) {
-        formData.append("files", file.files[i]);
+        formdata.append("files", file.files[i]);
       }
       try {
         const res = await axios({
