@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="chat">
+      사용자 이름<input type="text" id="username" /> <br />
+      <input type="text" id="message" /><br />
+      <button>채팅</button>
+    </form>
+    <ul></ul>
+    <script>
+      const fileReader = new FileReader();
+      const socket = new WebSocket("ws://localhost:8000");
+      const chatForm = document.querySelector("#chat");
+      const ul = document.querySelector("ul");
+      //서버연결
+      socket.addEventListener("open", (event) => {
+        socket.send("hello world");
+        console.log("서버가 연결되었습니다.");
+      });
+      //메시지 주고 받기
+      socket.addEventListener("message", (event) => {
+        console.log(`서버로 부터 받은 메시지: ${event.data}`);
+        const li = document.createElement("li");
+        const msg = event.data.replace(",", ":");
+        console.log(msg);
+        li.textContent = msg;
+        ul.appendChild(li);
+      });
+      //오류발생
+      socket.addEventListener("error", (event) => {
+        console.log(event);
+        console.log("오류가 발생하였습니다.", event.error);
+      });
+      //종료
+      socket.addEventListener("close", (event) => {
+        console.log("서버와 연결이 종료되었습니다.");
+      });
+
+      /////form이벤트/////
+      chatForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const name = chatForm.querySelector("#username");
+        const msg = chatForm.querySelector("#message");
+        // socket.send([name.value, msg.value]);
+        socket.send({ name: name.value, msg: msg.value });
+        msg.value = "";
+      });
+    </script>
+  </body>
+</html>
