@@ -19,16 +19,13 @@
       const ul = document.querySelector("ul");
       //서버연결
       socket.addEventListener("open", (event) => {
-        socket.send("hello world");
         console.log("서버가 연결되었습니다.");
       });
       //메시지 주고 받기
       socket.addEventListener("message", (event) => {
         console.log(`서버로 부터 받은 메시지: ${event.data}`);
         const li = document.createElement("li");
-        const msg = event.data.replace(",", ":");
-        console.log(msg);
-        li.textContent = msg;
+        li.textContent = event.data;
         ul.appendChild(li);
       });
       //오류발생
@@ -46,8 +43,7 @@
         event.preventDefault();
         const name = chatForm.querySelector("#username");
         const msg = chatForm.querySelector("#message");
-        // socket.send([name.value, msg.value]);
-        socket.send({ name: name.value, msg: msg.value });
+        socket.send(JSON.stringify({ name: name.value, msg: msg.value }));
         msg.value = "";
       });
     </script>

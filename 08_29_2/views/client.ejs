@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+    <button value="hello">hello</button>
+    <button value="study">study</button>
+    <button value="bye">bye</button>
+    <p></p>
+    <script>
+      const p = document.querySelector("p");
+      const btn = document.querySelectorAll("button");
+      //io함수가 클라이언트 소켓생성 및 연결 설정
+      const socket = io();
+
+      /////hello이벤트/////
+      btn[0].addEventListener("click", (event) => {
+        socket.emit("new_message", event.target.value, (res) => {
+          p.textContent = `${res}`;
+        });
+      });
+      /////study이벤트/////
+      btn[1].addEventListener("click", (event) => {
+        socket.emit("new_message", event.target.value, (res) => {
+          p.textContent = `${res}`;
+        });
+      });
+      /////bye이벤트/////
+      btn[2].addEventListener("click", (event) => {
+        socket.emit("new_message", event.target.value, (res) => {
+          p.textContent = `${res}`;
+        });
+      });
+    </script>
+  </body>
+</html>

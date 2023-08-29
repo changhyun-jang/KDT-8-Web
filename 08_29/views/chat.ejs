@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="/socket.io/socket.io.js"></script>
+    <title>Document</title>
+    <style>
+      div {
+        background-color: skyblue;
+        width: 300px;
+        height: 600px;
+        overflow-y: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+    <form id="chat">
+      <input type="text" id="message" placeholder="채팅내용" />
+      <button>채팅</button>
+    </form>
+    <script>
+      const chatForm = document.querySelector("#chat");
+      const socket = io();
+      const chatroom = prompt("채팅방이름을 입력하세요.");
+      const username = prompt("이름을 입력하세요: ");
+      socket.emit("join", chatroom);
+      socket.on("userjoin", (message) => {
+        console.log(message);
+      });
+
+      chatForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const msg = chatForm.querySelector("#message");
+        socket.emit("message", username, msg.value);
+        msg.value = "";
+      });
+      socket.on("chat", (senduser, message) => {
+        const space = document.querySelector("div");
+        const p = document.createElement("p");
+        const span = document.createElement("span");
+        span.innerText = `${message}`;
+        p.appendChild(span);
+        if (senduser == username) {
+          p.style.textAlign = "right";
+          span.style.backgroundColor = "yellow";
+        } else {
+          span.style.backgroundColor = "white";
+        }
+        space.appendChild(p);
+      });
+    </script>
+  </body>
+</html>
