@@ -1,0 +1,56 @@
+.test {
+  background-color: burlywood;
+  color: brown;
+  font-size: 50px;
+  margin: auto;
+  text-align: center;
+}
+
+.input {
+  text-align: center;
+  margin: 30px;
+}
+.align {
+  display: flex;
+}
+.red {
+  width: 20px;
+  height: 20px;
+  background-color: red;
+}
+
+.orange {
+  width: 20px;
+  height: 30px;
+  background-color: orange;
+}
+
+.yellow {
+  width: 20px;
+  height: 40px;
+  background-color: yellow;
+}
+
+.green {
+  width: 20px;
+  height: 50px;
+  background-color: green;
+}
+
+.blue {
+  width: 20px;
+  height: 60px;
+  background-color: blue;
+}
+
+.navy {
+  width: 20px;
+  height: 70px;
+  background-color: navy;
+}
+
+.purple {
+  width: 20px;
+  height: 80px;
+  background-color: purple;
+}
