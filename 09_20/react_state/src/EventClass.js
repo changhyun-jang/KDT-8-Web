@@ -1,0 +1,29 @@
+import { Component } from "react";
+
+class EventClass extends Component {
+  //생성자(this를 쓰기 위함)
+  constructor(props) {
+    super(props); //부모 클래스인 Component의 생성자를 호출
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    console.log(this);
+    alert("클래스형 컴포넌트");
+  }
+
+  handleClick2 = () => {
+    console.log("화살표 함수 this", this);
+    alert(" 클래스형 컴포넌트2");
+  };
+  render() {
+    return (
+      <>
+        <button onClick={this.handleClick}>클릭 class</button>
+        <br />
+        <button onClick={this.handleClick2}>클릭 class2</button>
+      </>
+    );
+  }
+}
+export default EventClass;
