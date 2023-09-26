@@ -1,0 +1,40 @@
+//scss 파일명 앞에 _를 붙여서 작성하면 파일단위로 분리되어 컴파일 되지 않는다.
+// 여기에 넣는 코드들은 컴파일 되지않는다.
+//변수 명 작성 하는 곳
+$color-red: red;
+$color-orange: #ffb680;
+$color-yellow: #ffeb88;
+$color-green: rgb(73, 187, 73);
+$color-blue: blue;
+$color-navy: rgb(80, 80, 149);
+$color-purple: rgb(166, 102, 166);
+$color-pink: rgb(240, 166, 166);
+
+@mixin box($size) {
+  width: $size;
+  height: $size;
+}
+@mixin move0($distance) {
+  top: $distance;
+  left: $distance;
+  right: $distance;
+  bottom: $distance;
+}
+@mixin move1($distance) {
+  top: 0;
+  left: $distance;
+  right: 0;
+  bottom: 0;
+}
+@mixin move2($distance) {
+  top: $distance;
+  left: $distance;
+  right: 0;
+  bottom: 0;
+}
+@mixin move3($distance) {
+  top: $distance;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}

@@ -1,0 +1,91 @@
+@import "./utils";
+
+.circle {
+  @include box(100px);
+  border-radius: 50%;
+  &.circle1 {
+    background-color: $color-pink;
+    position: relative;
+    animation-name: animate1;
+    animation-duration: 0.2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+    animation-delay: 0.3s;
+  }
+  &.circle2 {
+    background-color: $color-yellow;
+    position: relative;
+    animation-name: animate2;
+    animation-duration: 0.2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+    animation-delay: 0.3s;
+  }
+  &.circle3 {
+    background-color: $color-green;
+    position: relative;
+    animation-name: animate3;
+    animation-duration: 0.2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+    animation-delay: 0.3s;
+  }
+}
+@keyframes animate1 {
+  0% {
+    @include move0(0);
+  }
+
+  25% {
+    @include move1(100px);
+  }
+
+  50% {
+    @include move2(100px);
+  }
+  75% {
+    @include move3(100px);
+  }
+  100% {
+    @include move0(0);
+  }
+}
+
+@keyframes animate2 {
+  0% {
+    @include move0(0);
+  }
+
+  25% {
+    @include move1(200px);
+  }
+
+  50% {
+    @include move2(200px);
+  }
+  75% {
+    @include move3(200px);
+  }
+  100% {
+    @include move0(0);
+  }
+}
+@keyframes animate3 {
+  0% {
+    @include move0(0);
+  }
+
+  25% {
+    @include move1(300px);
+  }
+
+  50% {
+    @include move2(300px);
+  }
+  75% {
+    @include move3(300px);
+  }
+  100% {
+    @include move0(0);
+  }
+}
