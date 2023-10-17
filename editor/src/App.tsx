@@ -1,5 +1,5 @@
 import React from "react";
-import Editor from "./editablePage";
+import Editor from "./editor";
 
 function App() {
   return (
