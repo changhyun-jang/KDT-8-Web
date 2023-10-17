@@ -28,7 +28,10 @@ export default function Editor_nav() {
   };
 
   //h1~h4태그 적용하기
-  const applyh = () => {};
+  const applyh = () => {
+    const selection = document.getSelection();
+    console.log(selection);
+  };
 
   return (
     <div>
