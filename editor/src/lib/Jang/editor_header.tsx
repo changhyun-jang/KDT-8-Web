@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import React from "react";
+import "../scss/header.scss";
 
 export default function Editor_header() {
   //block의 내용
@@ -14,7 +16,6 @@ export default function Editor_header() {
   };
   return (
     <>
-      <h1>제목적기</h1>
       <h1
         contentEditable
         suppressContentEditableWarning

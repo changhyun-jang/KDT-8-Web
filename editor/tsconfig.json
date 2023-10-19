@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -17,10 +13,13 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
+    // npm배포-1
+    "noEmit": false,
+    //npm배포-2
+    "declaration": true,
+    //npm배포-3
+    "outDir": "./dist",
+    "jsx": "react"
   },
-  "include": [
-    "src"
-  ]
+  "include": ["./src/lib/**/*.tsx", "./src/lib/**/*.ts", "./src/lib/**.tsx"]
 }

@@ -1,7 +1,10 @@
 import { useEffect, useState, useRef } from "react";
+import React from "react";
 import Editor_header from "./editor_header";
 import Editor_body from "./editor_body";
 import Editor_nav from "./editor_nav";
+import "../scss/editor.scss";
+
 export interface initialState {
   id: string;
   tagName: string;
@@ -19,12 +22,35 @@ const bodyBlockState: initialState = {
 
 export default function Edtior() {
   const [blocks, setBlocks] = useState([bodyBlockState]);
+  const [selectedBlockIndex, setSelectedBlockIndex] = useState<null | number>(
+    null
+  );
   const dragItem = useRef();
   const dragOverItem = useRef();
 
   useEffect(() => {
     console.log("state 변했어!");
   }, [blocks]);
+
+  //태그적용시키기
+  const applyHeading = (headingLevel: number) => {
+    const currentContent = blocks.findIndex(
+      (block) => block.html === window.getSelection()?.anchorNode?.textContent
+    );
+
+    if (currentContent !== null && currentContent >= 0) {
+      console.log(currentContent);
+      const updatedBlocks = [...blocks];
+      const headingTag = `h${headingLevel}`;
+      if (headingTag !== updatedBlocks[currentContent].tagName) {
+        updatedBlocks[currentContent].tagName = headingTag;
+      } else {
+        updatedBlocks[currentContent].tagName = "div";
+      }
+      setBlocks(updatedBlocks);
+    }
+  };
+
   // 드래그 시작될 때 실행
   const dragStart = (e: any, position: any) => {
     dragItem.current = position;
@@ -68,10 +94,13 @@ export default function Edtior() {
       e.preventDefault();
       const newBlock: initialState = { id: uid(), html: "", tagName: "div" };
       setBlocks([...blocks, newBlock]);
+      setSelectedBlockIndex(blocks.length);
     } else if (e.key === "Backspace") {
-      const prev = e.target.previousSibling;
       if (e.target.innerText === "") {
-        if (e.target.id > 0) {
+        if (blocks.length > 1) {
+          const prev =
+            e.target.parentNode.parentNode.previousSibling.children[0]
+              .children[1];
           let num = e.target.id;
           setBlocks(
             blocks.filter((block, index) => {
@@ -95,15 +124,15 @@ export default function Edtior() {
     const selection: any = window.getSelection();
     range.selectNodeContents(element);
     range.collapse(false);
+    console.log(range);
     selection.removeAllRanges();
     selection.addRange(range);
-    element.focus();
   };
 
   return (
-    <div onKeyDown={handleKeydown}>
+    <div className="all" onKeyDown={handleKeydown}>
       <Editor_header />
-      <Editor_nav />
+      <Editor_nav applyHeading={applyHeading} />
       <div className="container">
         {blocks.map((block, index) => {
           return (
@@ -117,6 +146,7 @@ export default function Edtior() {
               onDragStart={dragStart}
               onDragEnter={dragEnter}
               onDropEnd={drop}
+              isSelected={selectedBlockIndex === index}
             />
           );
         })}

@@ -1,7 +1,10 @@
 import { ImBold } from "react-icons/im";
 import { FiItalic } from "react-icons/fi";
 import { MdOutlineFormatStrikethrough } from "react-icons/md";
-export default function Editor_nav() {
+import "../scss/editor_nav.scss";
+import React from "react";
+
+export default function Editor_nav(props: any) {
   //효과 적용하기
   const applyEffect = (effect: string) => {
     const selection = document.getSelection();
@@ -27,28 +30,48 @@ export default function Editor_nav() {
     }
   };
 
-  //h1~h4태그 적용하기
-  const applyh = () => {
-    const selection = document.getSelection();
-    console.log(selection);
-  };
-
   return (
-    <div>
+    <div className="navbar">
       <ul>
         <li>
-          <button type="button" onClick={applyh}>
+          <button
+            type="button"
+            onClick={() => {
+              props.applyHeading(1);
+            }}
+          >
             H1
           </button>
         </li>
         <li>
-          <button type="button">H2</button>
+          <button
+            type="button"
+            onClick={() => {
+              props.applyHeading(2);
+            }}
+          >
+            H2
+          </button>
         </li>
         <li>
-          <button type="button">H3</button>
+          <button
+            type="button"
+            onClick={() => {
+              props.applyHeading(3);
+            }}
+          >
+            H3
+          </button>
         </li>
         <li>
-          <button type="button">H4</button>
+          <button
+            type="button"
+            onClick={() => {
+              props.applyHeading(4);
+            }}
+          >
+            H4
+          </button>
         </li>
         <li>
           <button

@@ -1,0 +1,14 @@
+.navbar {
+  width: 30%;
+  height: 40px;
+  padding: 2px;
+  ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  button {
+    width: 40px;
+    height: 40px;
+  }
+}

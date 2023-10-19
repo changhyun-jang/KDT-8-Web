@@ -1,0 +1,7 @@
+h1 {
+  &:empty::before {
+    content: attr(placeholder);
+    color: #ccc;
+  }
+  width: 60%;
+}
