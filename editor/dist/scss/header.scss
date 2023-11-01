@@ -1,0 +1,9 @@
+h1 {
+  width: 60%;
+}
+h1:empty::before {
+  content: attr(placeholder);
+  color: #ccc;
+}
+
+/*# sourceMappingURL=header.scss.map */

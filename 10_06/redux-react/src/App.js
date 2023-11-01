@@ -1,17 +1,17 @@
-// import CartList from "./cart/cartList";
-// import ProductList from "./cart/productLIst";
-import Login from "./Login";
-import Counter from "./counter";
+import CartList from "./cart/cartList";
+import ProductList from "./cart/productLIst";
+// import Login from "./Login";
+// import Counter from "./counter";
 // import Main from "./main";
 
 function App() {
   return (
     <>
-      <Counter />
-      <Login />
+      {/* <Counter />
+      <Login /> */}
       {/* <Main /> */}
-      {/* <ProductList />
-      <CartList /> */}
+      <ProductList />
+      <CartList />
     </>
   );
 }

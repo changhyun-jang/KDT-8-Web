@@ -1,6 +1,6 @@
 {
   "name": "react-jangditor",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "private": false,
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -50,7 +50,7 @@
     "build:scss:file4": "sass src/lib/scss/header.scss dist/scss/header.scss",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prepare": "mkdir dist && tsc"
+    "prepare": "tsc"
   },
   "eslintConfig": {
     "extends": [

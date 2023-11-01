@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import Store from "./store/toolstore";
+import Store from "./store/store2";
 import { Provider } from "react-redux";
 
 //10_5 react화

@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
-import { ADD } from "../store/store2";
+import { cartAction } from "../store/carts";
 
 export default function ProductItem(info) {
   const dispatch = useDispatch();
   const AddCart = () => {
-    dispatch({ type: ADD, info });
+    dispatch(cartAction.add({ item: info }));
   };
   return (
     <>

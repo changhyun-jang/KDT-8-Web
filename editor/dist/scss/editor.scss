@@ -1,0 +1,20 @@
+.all {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.container {
+  width: 60%;
+  height: 80%;
+  border: 1px solid black;
+  overflow-y: auto;
+}
+.container:empty::before {
+  content: attr(placeholder);
+  color: #ccc;
+}
+
+/*# sourceMappingURL=editor.scss.map */
