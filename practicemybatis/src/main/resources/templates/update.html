@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<form id="form_update">
+  <input type="text" placeholder="아이디" name="id"  th:value="${userid}" readonly/> <br />
+  <input type="password" placeholder="비밀번호" name="pw" /> <br />
+  <input type="text" placeholder="이름" name="name" /> <br />
+  <button type="button" onclick="updateuser();">수정하기</button>
+  <button type="button" onclick="deleteuser();">삭제하기</button>
+</form>
+<script>
+  function updateuser() {
+      const form = document.getElementById('form_update');
+      const data = {
+          userid: form.id.value,
+          name: form.name.value,
+          pwd: form.pw.value,
+      };
+      axios({
+          method: 'PATCH',
+          url: '/update',
+          data,
+      }).then((res) => {
+          alert('데이터 수정완료!');
+          window.location.href="/login";
+      });
+  }
+
+  function deleteuser() {
+      const form = document.getElementById('form_update');
+      const data = {
+          userid: form.id.value,
+      };
+      axios({
+          method: 'DELETE',
+          url: '/delete',
+          data,
+      }).then((res) => {
+          alert('회원탈퇴되셨습니다!');
+          window.location.href="/";
+      });
+  }
+</script>
+</body>
+</html>

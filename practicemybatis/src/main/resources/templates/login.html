@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<form id="form_login">
+    <input type="text" placeholder="아이디" name="id" /> <br />
+    <input type="password" placeholder="비밀번호" name="pw" /> <br />
+    <button type="button" onclick="login();">로그인</button>
+</form>
+<script th:inline="javascript">
+            function login() {
+                const form = document.getElementById('form_login');
+                const data = {
+                    userid: form.id.value,
+                    pwd: form.pw.value,
+                };
+                axios({
+                    method: 'POST',
+                    url: '/login',
+                    data,
+                }).then((res) => {
+                    if (res.data) {
+                        alert('로그인 성공!');
+                        console.log(res.data);
+                        window.location.href=`/update/${res.data}`;
+                    } else {
+                        alert('로그인 실패!');
+                        form.reset();
+                    }
+                });
+            }
+        </script>
+</body>
+</html>
